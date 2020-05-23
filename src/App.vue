@@ -4,21 +4,22 @@
       <div class="title">
         <h1>數獨</h1>
       </div>
-      <h1 v-show="isSolved">成功ㄌ!</h1>
-      <div class="status">
-        <status />
-      </div>
       <div class="display">
-        <div class="display_matrix">
-          <display />
+        <div class="display_status">
+          <status />
         </div>
-        <div class="display_toolPad">
-          <numberPad />
+        <div class="display_board">
+          <div class="display_board-matrix">
+            <display />
+          </div>
+          <div class="display_board-toolPad">
+            <numberPad />
+          </div>
         </div>
       </div>
-      <div class="footer" />
     </div>
   </div>
+  <!--    <h1 v-show="isSolved">成功ㄌ!</h1> -->
 </template>
 
 <script>
@@ -81,85 +82,79 @@ export default {
 </script>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
   font-family: "NTR", sans-serif;
-  background: #ffffff;
+  box-sizing: border-box;
 }
-
+body {
+  background: #ffffff;
+  width: 100%;
+  height: 100vh;
+}
 .container {
   display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: nowrap;
   height: 100vh;
-  margin: 0 20px 0 20px;
+  padding: 0 12px;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
-
 .title {
-  margin: 0px;
-  flex: 1 0 8%;
+  flex: 0 0 100%;
+  height: 80px;
   text-align: center;
-  /* line-height: 100px; */
-  color: #2e4963;
 }
 .title h1 {
-  margin-bottom: 0;
-  /*  margin-top: 12px; */
+  color: #2e4963;
+  padding: 20px;
 }
-
-.status {
-  flex: 1 0 5%;
-}
-
 .display {
-  flex: 1 0 87%;
-  display: -webkit-box;
+  flex: 0 0 100%;
+  height: calc(100% - 80px);
+  padding: 0 80px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
-.display_matrix {
-  flex: 1 0 70%;
+.display_status {
+  flex: 0 0 100%;
+  height: 40px;
 }
-.display_toolPad {
-  flex: 1 0 10%;
-  display: -webkit-box;
+
+.display_board {
+  flex: 0 0 100%;
+  height: calc(100% - 40px);
   display: flex;
-  margin-top: 4px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   flex-direction: column;
-  -webkit-box-pack: center;
+}
+
+.display_board-matrix {
+  flex: 3;
+}
+.display_board-toolPad {
+  flex: 1;
+  padding-bottom: 20px;
 }
 @media only screen and (min-width: 992px) {
-  .title {
-    flex: 1 0 5%;
-  }
-  .status {
-    flex: 1 0 5%;
-  }
   .display {
-    flex: 1 0 80%;
-    display: flex;
+    padding: 0;
+  }
+  .display_board {
+    padding-bottom: 80px;
     flex-direction: row;
   }
-  .footer {
-    flex: 1 0 5%;
+  .display_board-matrix {
+    flex: 0 0 60%;
+    padding-right: 30px;
   }
-  .display_matrix {
-    flex: 1 0 50%;
-  }
-  .display_toolPad {
-    flex: 1 0 40%;
-    margin-left: 20px;
-    border: 1px solid #ddd;
+  .display_board-toolPad {
+    flex: 0 0 40%;
+
+    padding-bottom: 0;
   }
 }
 </style>

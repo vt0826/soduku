@@ -4,6 +4,7 @@ import info from "./modules/info";
 import display from "./modules/display";
 import timer from "./modules/timer";
 import tools from "./modules/tools";
+import helloworld from "./modules/soduku";
 
 Vue.use(Vuex);
 

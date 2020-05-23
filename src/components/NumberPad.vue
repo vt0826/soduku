@@ -45,22 +45,21 @@ export default {
 
 <style>
 .pad_container {
+  /*  height: 100%; */
+  /*   flex-direction: column; */
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-wrap: wrap;
 }
 
 .pad_tools {
-  flex: 1 0 40%;
+  flex: 0 0 100%;
   display: flex;
   flex-wrap: wrap;
 }
 .pad_tools button {
   height: 100px;
   width: 100%;
-  flex: 1 0 25%;
-  margin: 0;
-  padding: 0;
+  flex: 1;
   border: none;
   outline: none;
   background-color: #ffffff;
@@ -71,7 +70,7 @@ export default {
 }
 
 .pad_keyboard {
-  flex: 1 0 60%;
+  flex: 1 0 100%;
   /*  height: 100%; */
   margin: 0;
   padding: 0;
@@ -81,7 +80,7 @@ export default {
 }
 .pad_keyboard li {
   /* height: 100%; */
-  flex: 1 0 11%;
+  flex: 1;
 }
 .pad_keyboard li button {
   width: 100%;
@@ -108,6 +107,9 @@ button span {
   display: block;
 }
 @media only screen and (min-width: 992px) {
+  .pad_container {
+    height: 100%;
+  }
   .pad_tools {
     border: 1px solid #d9d9d9;
   }
